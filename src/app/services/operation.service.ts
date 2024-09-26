@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { OperationInterface } from '../interface/operation.interface';
+import { CheckNonNumberString } from '../decorators/operation.decorator';
 
 @Injectable({
   providedIn: 'root'
@@ -7,8 +8,9 @@ import { OperationInterface } from '../interface/operation.interface';
 export class OperationService implements OperationInterface {
 
   constructor() { }
-  
+
+  @CheckNonNumberString()
   performOperation(param: string): number {
-    throw new Error('Method not implemented.');
+    return 0;
   }
 }
