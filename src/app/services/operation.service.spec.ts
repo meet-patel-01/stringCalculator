@@ -33,4 +33,9 @@ describe('OperationService', () => {
   it('should return 6', () => {
     expect(service.performOperation('1,2\n3')).toEqual(6);
   });
+
+  /* number string with negative number */
+  it('should return \'negative numbers not allowed\'', () => {
+    expect(service.performOperation('-1, -2\n3')).toEqual('negative numbers not allowed -1, -2');
+  });
 });

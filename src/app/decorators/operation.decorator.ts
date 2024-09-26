@@ -40,6 +40,27 @@ export function CheckSingleNumberString() {
   };
 }
 
+export function CheckNegativeNumberString() {
+  return function (
+    target: any,
+    propertyKey: string,
+    descriptor: PropertyDescriptor
+  ) {
+    const originalMethod = descriptor.value;
+
+    descriptor.value = function (...args: string[]) {
+      const filter = args[0].match(/-\d+/g);
+
+      if (filter && filter.length > 1) {
+        return `negative numbers not allowed ${filter.join(', ')}`
+      }
+      return originalMethod.apply(this, args);
+    };
+
+    return descriptor;
+  };
+}
+
 export function FilterNumberString() {
   return function (
     target: any,

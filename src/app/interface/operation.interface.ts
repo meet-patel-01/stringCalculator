@@ -1,3 +1,3 @@
 export interface OperationInterface {
-    performOperation(param: string): number;
+    performOperation(param: string): number | string;
 }
