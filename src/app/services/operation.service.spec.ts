@@ -38,4 +38,9 @@ describe('OperationService', () => {
   it('should return \'negative numbers not allowed\'', () => {
     expect(service.performOperation('-1, -2\n3')).toEqual('negative numbers not allowed -1, -2');
   });
+
+  /* number string with delimiter */
+  it('should return 5', () => {
+    expect(service.performOperation('"//;\n2\n3')).toEqual(5);
+  });
 });
