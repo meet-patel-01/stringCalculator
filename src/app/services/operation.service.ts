@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { OperationInterface } from '../interface/operation.interface';
-import { CheckNonNumberString, CheckSingleNumberString } from '../decorators/operation.decorator';
+import { CheckNonNumberString, CheckSingleNumberString, FilterNumberString } from '../decorators/operation.decorator';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,9 @@ export class OperationService implements OperationInterface {
 
   @CheckNonNumberString()
   @CheckSingleNumberString()
+  @FilterNumberString()
   performOperation(param: string): number {
-    return 0;
+    console.log('main >', param)
+    return eval(param.replaceAll(',', '+'));
   }
 }

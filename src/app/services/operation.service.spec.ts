@@ -28,4 +28,9 @@ describe('OperationService', () => {
   it('should return 1', () => {
     expect(service.performOperation('there is no number in string // \\ \n"> 1')).toEqual(1);
   });
+
+  /* number string with \n */
+  it('should return 6', () => {
+    expect(service.performOperation('1,2\n3')).toEqual(6);
+  });
 });
