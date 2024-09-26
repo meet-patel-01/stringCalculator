@@ -14,13 +14,18 @@ describe('OperationService', () => {
     expect(service).toBeTruthy();
   });
 
-  /* empty string, non digit */
-  
+  /* empty string */
   it('should return 0', () => {
     expect(service.performOperation('')).toEqual(0);
-  })
+  });
 
+  /* non digit string */
   it('should return 0', () => {
     expect(service.performOperation('there is no number in string // \\ \n">')).toEqual(0);
-  })
+  });
+  
+  /* single digit string */
+  it('should return 1', () => {
+    expect(service.performOperation('there is no number in string // \\ \n"> 1')).toEqual(1);
+  });
 });
