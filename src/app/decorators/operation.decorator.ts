@@ -10,7 +10,7 @@ export function CheckNonNumberString() {
       const filter = args[0].match(/-?\d+(\.\d+)?/g);
 
       if (filter) {
-        return originalMethod.apply(this, [filter.join(',')]);
+        return originalMethod.apply(this, args);
       }
       return 0;
     };
@@ -31,7 +31,7 @@ export function CheckSingleNumberString() {
       const filter = args[0].match(/-?\d+(\.\d+)?/g);
 
       if (filter && filter.length > 1) {
-        return originalMethod.apply(this, [filter.join(',')]);
+        return originalMethod.apply(this, args);
       }
       return filter ? +filter[0] : 0;
     };
