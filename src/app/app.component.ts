@@ -26,6 +26,10 @@ export class AppComponent {
   }
 
   performOperation(argument: string): void {
-    this.result = this.operationService.performOperation(argument);
+    /*
+    * here it comes to my attention that string from input-box and passing in param in spec file, is different,
+    * so \n was not considered as as form of string not as new line, so that's the reason why regex was not working.
+    */
+    this.result = this.operationService.performOperation(argument.replace(/\\n/g, '\n'));
   }
 }

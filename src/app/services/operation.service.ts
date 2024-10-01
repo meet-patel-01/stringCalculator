@@ -28,8 +28,13 @@ export class OperationService implements OperationInterface {
     const delimiter = param.match(/\/\/(.*?)\n/g);
     const filterNumber = param.match(/\d+(\.\d+)?/g);
     let delimiterList: string[] | null = null;
-
+    
     delimiterList = delimiter?.map((match) => match.slice(2, -1)) || null;
+    /**
+     * delimiter will hold the "delimiter" value in form of array.
+     * filterNumber hold the numeric value from the string.
+     * delimiterList will filter out "//" and "\n", and gives actual delimiter in form of array.
+    */
     
     if (filterNumber) {
       let returnString: string = eval(filterNumber.join(',').replaceAll(',', '+'))

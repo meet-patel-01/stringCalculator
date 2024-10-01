@@ -53,4 +53,9 @@ describe('OperationService', () => {
   it('should return 5 with delimiter ; ', () => {
     expect(service.performOperation('//;\n2\n3')).toEqual('5 with delimiter ;');
   });
+
+  /* return delimiters along with sum  */
+  it('should return 10 with delimiter ; *$ && @', () => {
+    expect(service.performOperation('//;\n2\n3//*$\n5//&&\n//@\n')).toEqual('10 with delimiter ; *$ && @');
+  });
 });

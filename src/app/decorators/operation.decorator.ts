@@ -50,8 +50,7 @@ export function CheckNegativeNumberString() {
 
     descriptor.value = function (...args: string[]) {
       const filter = args[0].match(/-\d+/g);
-
-      if (filter && filter.length > 1) {
+      if (filter && filter.length > 0) {
         return `negative numbers not allowed ${filter.join(', ')}`
       }
       return originalMethod.apply(this, args);
