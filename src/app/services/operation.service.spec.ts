@@ -39,7 +39,7 @@ describe('OperationService', () => {
     expect(service.performOperation('-1, -2\n3')).toEqual('negative numbers not allowed -1, -2');
   });
 
-  /* number string with negative number with delimiter*/
+  /* number string with negative number*/
   it('should return \'negative numbers not allowed\'', () => {
     expect(service.performOperation('//;\n-1, -2\n3')).toEqual('negative numbers not allowed -1, -2');
   });
@@ -57,5 +57,10 @@ describe('OperationService', () => {
   /* return delimiters along with sum  */
   it('should return 10 with delimiter ; *$ && @', () => {
     expect(service.performOperation('//;\n2\n3//*$\n5//&&\n//@\n')).toEqual('10 with delimiter ; *$ && @');
+  });
+
+  /* return negative number  */
+  it('should return negative number', () => {
+    expect(service.performOperation('//;\n2\n3//*$\n5//&&\n//@\n;-6')).toEqual('negative numbers not allowed -6');
   });
 });
